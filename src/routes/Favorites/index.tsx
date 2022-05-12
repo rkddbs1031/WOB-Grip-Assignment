@@ -1,5 +1,6 @@
 import styles from './Favorite.module.scss'
 import Nav from '../_shared/LNB'
+import FavList from './List'
 
 const Favorites = () => {
   return (
@@ -7,8 +8,11 @@ const Favorites = () => {
       <Nav />
       <header className={styles.header} >
         <h2 className={styles.favTitle}> MovieApp </h2>
-        <div>Favorite</div>
       </header>
+      <section className={styles.section1}>
+        <h2>내 즐겨찾기 <span>❤</span> </h2>
+        <FavList />
+      </section>
     </main>
   )
 }
