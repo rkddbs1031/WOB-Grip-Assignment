@@ -182,6 +182,48 @@
       }
     }
 
+    .modalWrap {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 50%;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 15;
+
+      button {
+        color: colors.$GRAYC;
+        letter-spacing: 0.3px;
+        font-size: 11px;
+        margin: 0 8px;
+      }
+
+      .favBtn {
+        display: flex;
+        // flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1px 15px 1px 5px;
+        border-radius: 50px;
+        background: colors.$LOGO;
+
+        svg {
+          transform: scale(0.7);
+        }
+      }
+
+      .removeBtn {
+        padding: 8px 20px;
+        border-radius: 50px;
+        background: colors.$LOGO;
+      }
+    }
+
     .result {
       color: colors.$SEARCH;
       font-size: 13px;
