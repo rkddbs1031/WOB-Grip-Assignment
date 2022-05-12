@@ -1,0 +1,35 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+
+.lnb {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background: colors.$NAV;
+
+  ul {
+    display: flex;
+
+    li {
+      +li {
+        margin-left: 14px;
+      }
+
+      a {
+        color: #fff;
+        display: block;
+        padding: 10px;
+        border-radius: 50%;
+        border: 1px solid transparent;
+
+        &.isActive {
+          border: 1px solid colors.$BOX_COLOR;
+        }
+      }
+    }
+  }
+}

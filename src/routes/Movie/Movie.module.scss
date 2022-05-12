@@ -1,0 +1,13 @@
+@use '/src/styles/constants/colors';
+
+.movieWrap {
+  position: relative;
+  width: 360px;
+  height: 720px;
+  padding: 40px 25px;
+  background-color: colors.$APP_BG;
+  border-radius: 50px;
+  box-shadow: colors.$APP_BOX_SHADOW;
+  color: colors.$WHITE;
+  overflow: hidden;
+}
