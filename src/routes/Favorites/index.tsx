@@ -5,6 +5,10 @@ const Favorites = () => {
   return (
     <main className={styles.favWrap}>
       <Nav />
+      <header className={styles.header} >
+        <h2 className={styles.favTitle}> MovieApp </h2>
+        <div>Favorite</div>
+      </header>
     </main>
   )
 }
