@@ -2,7 +2,7 @@ import { MouseEvent } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { IListItem } from 'types/movie'
-import { MovieData, ModalVisible } from 'states/movie'
+import { MovieData, SelectItem, ModalVisible } from 'states/movie'
 
 import styles from './Movie.module.scss'
 import ImgNone from '../_shared/MovieImage'
@@ -13,10 +13,19 @@ interface Props {
 
 const Items = ({ item }: Props) => {
   const movieData = useRecoilState(MovieData)
-  // const setSelectItem = useSetRecoilState(SelectItem)
+  const setSelectItem = useSetRecoilState(SelectItem)
   const setModalShow = useSetRecoilState(ModalVisible)
 
-  const handleModal = () => {
+  const handleModal = (e: MouseEvent<HTMLButtonElement>) => {
+    const { poster, title, year, type, id } = e.currentTarget.dataset
+    const items = {
+      Poster: poster,
+      Title: title,
+      Type: type,
+      Year: year,
+      imdbID: id
+    }
+    setSelectItem(Object(items))
     setModalShow(true)
   }
 

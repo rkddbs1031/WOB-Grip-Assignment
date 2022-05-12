@@ -1,5 +1,5 @@
-import { useSetRecoilState } from 'recoil'
-import { ModalVisible } from 'states/movie'
+import { useSetRecoilState, useRecoilState, useRecoilValue } from 'recoil'
+import { ModalVisible, MovieFavoritList, SelectItem } from 'states/movie'
 import { Favorite2 } from 'assets/svgs/movie'
 
 import styles from 'routes/Movie/Movie.module.scss'
@@ -8,9 +8,11 @@ import styles from 'routes/Movie/Movie.module.scss'
 const Modal = () => {
 
   const setModalValue = useSetRecoilState(ModalVisible)
-
+  const [ favMovieList, setFavMovieList ] = useRecoilState(MovieFavoritList)
+  const selectItem = useRecoilValue(SelectItem)
+  
   const handleRemoveFavorite = () => {
-
+    setFavMovieList([...favMovieList, Object(selectItem)])
   }    
 
   const handleRemoveModal = () => {
