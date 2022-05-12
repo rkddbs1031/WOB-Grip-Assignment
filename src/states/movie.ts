@@ -31,15 +31,7 @@ export const ModalVisible = atom<Boolean>({
 
 export const MovieData = atom<IListItem[]>({
   key: '#MovieData',
-  default: [
-    {
-     Title: '',
-     Type: '',
-     Year: '',
-     imdbID: '',
-     Poster: ''
-   }
-  ]
+  default: []
 })
 
 export const SearchValue = atom<string>({

@@ -10,11 +10,5 @@ interface Params {
 
 export const getMovieSearchApi = ( parms: Params ) => {
   const { s, page } = parms
-  // axios.get<IMovieAPIRes>(`${MOVIE_BASE_URL}`, {
-  //   params: {
-  //     page,
-  //     s
-  //   }
-  // })
   return axios.get<IMovieAPIRes>(`${MOVIE_BASE_URL}/?apikey=${process.env.REACT_APP_API_KEY}&s=${s}&page=${page}`)
 }

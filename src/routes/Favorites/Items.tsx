@@ -56,12 +56,6 @@ const FavItems = ({ items }: Props) => {
               <dt>타입</dt>
               <dd className={styles.type}>{items.Type}</dd>
             </div>
-            <span>
-              {/* {
-               movieData.includes(Object(items)) ? <span>즐찾 있음!!</span> 
-               : <span>즐찾 없음!!</span>
-              } */}
-            </span>
           </div>
         </dl>
       </button>
