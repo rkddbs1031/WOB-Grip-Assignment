@@ -2,7 +2,7 @@ import { MouseEvent } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { IListItem } from 'types/movie'
-import { MovieData, SelectItem, ModalVisible } from 'states/movie'
+import { SelectItem, ModalVisible, MovieFavoritList } from 'states/movie'
 
 import styles from './Movie.module.scss'
 import ImgNone from '../_shared/MovieImage'
@@ -12,9 +12,11 @@ interface Props {
 }
 
 const Items = ({ item }: Props) => {
-  const movieData = useRecoilState(MovieData)
   const setSelectItem = useSetRecoilState(SelectItem)
   const setModalShow = useSetRecoilState(ModalVisible)
+  
+  // 이 데이터로 즐찾 여부 확인
+  const favMovieList = useRecoilState(MovieFavoritList)
 
   const handleModal = (e: MouseEvent<HTMLButtonElement>) => {
     const { poster, title, year, type, id } = e.currentTarget.dataset
@@ -27,7 +29,7 @@ const Items = ({ item }: Props) => {
     }
     setSelectItem(Object(items))
     setModalShow(true)
-  }
+  } 
 
   return(
     <li>
@@ -59,10 +61,10 @@ const Items = ({ item }: Props) => {
               <dd className={styles.type}>{item.Type}</dd>
             </div>
             <span>
-              {
-               movieData.includes(Object(item)) ? <span>즐찾 있음!!</span> 
+              {/* {
+               favMovieList.includes(Object(item)) ? <span>즐찾 있음!!</span> 
                : <span>즐찾 없음!!</span>
-              }
+              } */}
             </span>
           </div>
         </dl>

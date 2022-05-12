@@ -13,19 +13,24 @@ const MovieList = () => {
   const getSearchValue = useRecoilValue(SearchValue)
   const resetSearchValue = useResetRecoilState(SearchValue)
   const [ data, setData ] = useRecoilState<IListItem[]>(MovieData)
-  const modalShow = useRecoilValue(ModalVisible)
+  const [ modalShow, setModalShow ] =useRecoilState(ModalVisible)
 
   useEffect(() => {
     // 검색단어가 들어오면 api 요청하기
     // page값 수정해야함
-    getMovieSearchApi({
-      s: getSearchValue,
-      page: 1
-    }).then(( res ) => setData( res.data.Search ))
+    if (getSearchValue) {
+      getMovieSearchApi({
+        s: getSearchValue,
+        page: 1
+      }).then(( res ) => setData( res.data.Search ))
+    }
   }, [ getSearchValue, setData ])
 
+  
   useUnmount(() => {
     resetSearchValue()
+    // 모달 닫지 않고 넘어가도 reset
+    setModalShow(false)
   })
 
   return (
