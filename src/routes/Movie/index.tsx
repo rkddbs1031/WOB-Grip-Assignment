@@ -1,6 +1,7 @@
 import styles from './Movie.module.scss'
 import Nav from '../_shared/LNB'
 import SearchBox from '../_shared/SearchBox'
+import MovieList from './List'
 
 const Movie = () => {
   return (
@@ -13,7 +14,9 @@ const Movie = () => {
         <section className={styles.section1}>
           <SearchBox />
         </section>
-        <section className={styles.section2} />
+        <section className={styles.section2} >
+          <MovieList />
+        </section>
       </main>
     </div>
   )
