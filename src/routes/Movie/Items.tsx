@@ -42,10 +42,8 @@ const Items = ({ item }: Props) => {
             <dt>포스터</dt>
             <dd className={styles.imgWrap}>
               {
-                item.Poster !== 'N/A' ?
-                  <div className={styles.img} style={{backgroundImage: `url(${item.Poster})`}} />
-                : 
-                  <ImgNone />
+                item.Poster !== 'N/A' ? <div className={styles.img} style={{backgroundImage: `url(${item.Poster})`}} />
+                : <ImgNone />
               }
             </dd>
           </div>
@@ -60,11 +58,12 @@ const Items = ({ item }: Props) => {
               <dt>타입</dt>
               <dd className={styles.type}>{item.Type}</dd>
             </div>
-            <span>
-              {/* {
+            {/* Test */}
+            <span style={{color: 'red'}}>
+              {
                favMovieList.includes(Object(item)) ? <span>즐찾 있음!!</span> 
                : <span>즐찾 없음!!</span>
-              } */}
+              }
             </span>
           </div>
         </dl>
