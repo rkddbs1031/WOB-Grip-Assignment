@@ -22,7 +22,7 @@ const SearchBox = () => {
   return (
     <form onSubmit={handleSubmit} className={styles.searchBox}>
       <input type='text' placeholder='search' onChange={handleSearchKeyword} />
-      <button type='submit'>
+      <button type='submit' className={styles.searchBtn}>
         <SearchIcon48 className={styles.submit} />
       </button>
     </form>

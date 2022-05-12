@@ -4,13 +4,18 @@ import SearchBox from '../_shared/SearchBox'
 
 const Movie = () => {
   return (
-    <main className={styles.movieWrap}>
+    <div className={styles.movieWrap}>
       <Nav />
       <header className={styles.header} >
         <h2 className={styles.movieTitle}> MovieApp </h2>
-        <SearchBox />
       </header>
-    </main>
+      <main>
+        <section className={styles.section1}>
+          <SearchBox />
+        </section>
+        <section className={styles.section2} />
+      </main>
+    </div>
   )
 }
 export default Movie

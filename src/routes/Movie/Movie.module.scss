@@ -10,4 +10,58 @@
   box-shadow: colors.$APP_BOX_SHADOW;
   color: colors.$WHITE;
   overflow: hidden;
+
+  .header {
+    margin-bottom: 10px;
+
+    .movieTitle {
+      font-weight: 600;
+      color: colors.$LOGO;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .section1 {
+
+    .searchBox {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: inherit;
+
+      input {
+        position: relative;
+        padding: 15px 20px;
+        background: colors.$BUTTON;
+        border-radius: 20px;
+        color: colors.$WHITE;
+        width: 100%;
+        font-size: 14px;
+
+        &::placeholder {
+          font-size: 13px;
+          color: colors.$ICON;
+        }
+      }
+
+      .searchBtn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: colors.$WHITE;
+        font-size: 12px;
+        border-radius: 50%;
+        padding: 10px;
+
+        svg {
+          width: 25px;
+        }
+      }
+    }
+  }
+  
+  .section2 {}
 }
