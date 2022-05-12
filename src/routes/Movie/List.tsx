@@ -1,18 +1,19 @@
 import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil'
 
 import { useEffect, useUnmount } from 'hooks'
-import { SearchValue, MovieData } from 'states/movie'
+import { SearchValue, MovieData, ModalVisible } from 'states/movie'
 import { getMovieSearchApi } from 'services/movie'
 import { IListItem } from 'types/movie'
 
 import styles from './Movie.module.scss'
 import MovieItems from './Items'
-
+import Modal from '../_shared/Modal'
 
 const MovieList = () => {
   const getSearchValue = useRecoilValue(SearchValue)
   const resetSearchValue = useResetRecoilState(SearchValue)
   const [ data, setData ] = useRecoilState<IListItem[]>(MovieData)
+  const modalShow = useRecoilValue(ModalVisible)
 
   useEffect(() => {
     // 검색단어가 들어오면 api 요청하기
@@ -31,14 +32,17 @@ const MovieList = () => {
     <>
       <h2 className={styles.listTitle}>Movie List</h2>
       {
-        data && getSearchValue ? (          
-          <ul className={styles.lists}>
-            {
+        data && getSearchValue ? (    
+          <>      
+            <ul className={styles.lists}>
+              {
                 data.map(( item ) => (
                   <MovieItems key={`item-${item.imdbID}`} item={item} />
                   ))
                 }
-          </ul>
+            </ul>
+            { modalShow && <Modal />}
+          </>
         ) :(
           <span className={styles.result}>검색 결과가 없습니다</span>
         )
