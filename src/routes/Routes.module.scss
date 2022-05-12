@@ -56,3 +56,18 @@
     background: colors.$LOGO;
   }
 }
+
+.imgNone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid colors.$IMGNONE;
+
+  span {
+    color: colors.$GRAYC;
+    font-size: 10px;
+  }
+}

@@ -1,4 +1,4 @@
-import styles from 'routes/Movie/Movie.module.scss'
+import styles from 'routes/Routes.module.scss'
 
 const MovieImage = () => {
   return(
