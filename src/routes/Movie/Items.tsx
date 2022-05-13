@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react'
+import { MouseEvent, useEffect, useState } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { IListItem } from 'types/movie'
@@ -14,7 +14,8 @@ interface Props {
 const Items = ({ item }: Props) => {
   const setSelectItem = useSetRecoilState(SelectItem)
   const setModalShow = useSetRecoilState(ModalVisible)
-  
+  const [isChecked, setIsChecked] = useState<Boolean>(false)
+
   // 이 데이터로 즐찾 여부 확인
   const favMovieList = useRecoilState(MovieFavoritList)
 
@@ -30,6 +31,12 @@ const Items = ({ item }: Props) => {
     setSelectItem(Object(items))
     setModalShow(true)
   } 
+
+  // useEffect(() => {
+  //   favMovieList[0].map(( key ) => {
+  //     key.imdbID === item.imdbID ? setIsChecked(true) : setIsChecked(false)
+  //   })
+  // }, [favMovieList, item.imdbID])
 
   return(
     <li>
@@ -61,8 +68,13 @@ const Items = ({ item }: Props) => {
             {/* Test */}
             <span style={{color: 'red'}}>
               {
-               favMovieList.includes(Object(item)) ? <span>즐찾 있음!!</span> 
-               : <span>즐찾 없음!!</span>
+              //  favMovieList[0].map((key) => (
+              //    key.imdbID === item.imdbID ? (
+              //      <span>즐찾 있음!!</span> 
+              //    ) : (
+              //      <span>즐찾 없음!!</span>
+              //    )
+              //  ))  
               }
             </span>
           </div>

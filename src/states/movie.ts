@@ -34,6 +34,11 @@ export const MovieData = atom<IListItem[]>({
   default: []
 })
 
+export const PageNum = atom({
+  key: '#PageNum',
+  default: 1
+})
+
 export const SearchValue = atom<string>({
   key: '#SearchValue',
   default: ''
