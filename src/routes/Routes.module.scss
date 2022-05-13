@@ -24,9 +24,11 @@
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 50%;
+  height: 30%;
   border-radius: 15px;
-  background: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   z-index: 15;
 
   button {
@@ -46,7 +48,7 @@
     background: colors.$LOGO;
 
     svg {
-      transform: scale(0.7);
+      transform: scale(0.7) ;
     }
   }
 
@@ -67,7 +69,7 @@
   border: 1px solid colors.$IMGNONE;
 
   span {
-    color: colors.$GRAYC;
+    color: colors.$IMGNONE;
     font-size: 10px;
   }
 }

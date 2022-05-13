@@ -10,7 +10,7 @@
   justify-content: center;
   padding: 10px 0;
   background: colors.$NAV;
-
+  box-shadow: 0px -4px 2px colors.$NAV_SHADOW;
   ul {
     display: flex;
 
@@ -22,12 +22,12 @@
       a {
         color: #fff;
         display: block;
-        padding: 10px;
+        padding: 5px;
         border-radius: 50%;
         border: 1px solid transparent;
 
         &.isActive {
-          border: 1px solid colors.$BOX_COLOR;
+          border: 1px solid colors.$NAV_ACTIVE;
         }
       }
     }

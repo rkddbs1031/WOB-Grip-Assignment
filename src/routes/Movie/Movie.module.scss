@@ -6,8 +6,8 @@
   height: 720px;
   padding: 40px 25px;
   background-color: colors.$APP_BG;
-  border-radius: 50px;
-  box-shadow: colors.$APP_BOX_SHADOW;
+  border-radius: 50px; 
+  box-shadow: 0px 1px 4px colors.$APP_BOX_SHADOW;
   color: colors.$WHITE;
   overflow: hidden;
 
@@ -17,7 +17,7 @@
     .movieTitle {
       font-weight: 600;
       color: colors.$LOGO;
-      font-size: 24px;
+      font-size: 20px;
       margin-bottom: 20px;
     }
   }
@@ -35,15 +35,16 @@
       input {
         position: relative;
         padding: 15px 20px;
-        background: colors.$BUTTON;
+        background: colors.$BOX_COLOR;
         border-radius: 20px;
-        color: colors.$WHITE;
+        color: colors.$TITLE;
         width: 100%;
         font-size: 14px;
+        box-shadow: colors.$BOX_SHADOW;
 
         &::placeholder {
           font-size: 13px;
-          color: colors.$ICON;
+          color: colors.$SERCH_TITLE;
         }
       }
 
@@ -65,12 +66,13 @@
   }
   
   .section2 {
-    h2 {
-      font-size: 18px;
-      margin-bottom: 15px;
+    .searchTitle {
+      font-size: 13px;
+      margin-bottom: 20px;
+      color: colors.$SERCH_TITLE;
     }
     .listWrap {
-      height: 440px;
+      height: 480px;
       overflow-y: scroll;
     }
     .lists {
@@ -83,11 +85,12 @@
         }
 
         .movieBtn {
-          border-radius: 15px;
+          border-radius: 10px;
           padding: 14px;
           width: 100%;
-          height: 140px;
-          background: colors.$BUTTON;
+          height: 130px;
+          background: colors.$BOX_COLOR;
+          box-shadow: colors.$BOX_SHADOW;
 
           dl {
             display: flex;
@@ -101,7 +104,7 @@
 
               .imgWrap {
                 height: inherit;
-                border-radius: 10px;
+                border-radius: 5px;
 
                 .img {
                   background-position: center;
@@ -109,7 +112,7 @@
                   background-size: cover;
                   width: 100%;
                   height: 100%;
-                  border-radius: 10px;
+                  border-radius: 5px;
                 }
               }
             }
@@ -122,9 +125,10 @@
               text-align: left;
 
               .title {
-                color: colors.$GRAYC;
+                color: colors.$TITLE;
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 15px;
+                line-height: 17px;
                 margin-bottom: 7px;
                 white-space: normal;
                 display: -webkit-box;
@@ -135,28 +139,51 @@
 
               .ytWrap {
                 display: flex;
+                align-items: center;
 
                 .year,
-                .type {
+                .series,
+                .movie,
+                .game {
                   position: relative;
                   font-weight: 600;
                   font-size: 13px;
-                  color: colors.$SEARCH;
                 }
 
                 .year {
-                  margin-right: 18px;
-                  padding-top: 1px;
+                  margin-right: 20px;
+                  color: colors.$YEAR;
 
                   &::after {
                     position: absolute;
-                    top: 1px;
+                    top: 50%;
+                    transform: translateY(-50%);
                     right: -10px;
                     display: block;
                     content: '';
-                    height: 90%;
-                    border-right: 2px solid colors.$SEARCH
+                    height: 100%;
+                    border-right: 1px solid colors.$YEAR
                   }
+                }
+
+                .series,
+                .movie,
+                .game {
+                  padding: 2px 7px 3px;
+                  border-radius: 4px;
+                }
+
+                .series {
+                  border: 1px solid colors.$SERIES_COLOR;
+                  color: colors.$SERIES_COLOR;
+                }
+                .movie {
+                  border: 1px solid colors.$MOVIE_COLOR;
+                  color: colors.$MOVIE_COLOR;
+                }
+                .game {
+                  border: 1px solid colors.$GAME_COLOR;
+                  color: colors.$GAME_COLOR;
                 }
               }
             }
@@ -170,7 +197,7 @@
     }
 
     .result {
-      color: colors.$SEARCH;
+      color: colors.$RESULT;
       font-size: 13px;
     }
 
@@ -188,7 +215,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: colors.$WHITE;
+        background: colors.$RESULT;
         margin: 0 3px;
         animation: loading 0.3s alternate infinite forwards;
 
