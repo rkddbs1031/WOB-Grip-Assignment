@@ -10,9 +10,6 @@ const Favorites = () => {
         <h2 className={styles.favTitle}> MovieApp </h2>
       </header>
       <section className={styles.section1}>
-        <h2>
-          내 즐겨찾기 <span>❤</span>{' '}
-        </h2>
         <FavList />
       </section>
     </main>

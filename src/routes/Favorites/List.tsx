@@ -19,8 +19,11 @@ const FavList = () => {
     setModalShow(false)
   })
 
-  return favMovieList ? (
+  return favMovieList.length > 0 ? (
     <>
+      <h2>
+        내 즐겨찾기 <span>❤</span>{' '}
+      </h2>
       <ul className={styles.list}>
         {favMovieList.map((list) => (
           <FavItems key={`fav-${list.imdbID}`} items={list} />

@@ -59,7 +59,7 @@ const FavItems = ({ items }: Props) => {
               <dt>연도</dt>
               <dd className={styles.year}>{items.Year}</dd>
               <dt>타입</dt>
-              <dd className={styles.type}>{items.Type}</dd>
+              <dd className={styles[items.Type]}>{items.Type}</dd>
             </div>
           </div>
         </dl>
