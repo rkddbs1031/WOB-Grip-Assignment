@@ -91,7 +91,12 @@
           height: 130px;
           background: colors.$BOX_COLOR;
           box-shadow: colors.$BOX_SHADOW;
+          border: 1px solid colors.$BOX_BORDER;
+          transition: 0.4s;
 
+          &:hover {
+            transform: translateY(-5px);
+          }
           dl {
             display: flex;
             justify-content: space-between;
@@ -133,7 +138,7 @@
                 white-space: normal;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
+                -webkit-line-clamp: 2;
                 overflow: hidden;
               }
 
@@ -184,6 +189,17 @@
                 .game {
                   border: 1px solid colors.$GAME_COLOR;
                   color: colors.$GAME_COLOR;
+                }
+              }
+
+              .favStar {
+                border: 1px solid colors.$FAV_STAR;
+                padding: 3px 4px 1px;
+                border-radius: 50%;
+                margin-top: 5px;
+
+                svg {
+                  color: colors.$FAV_STAR;
                 }
               }
             }

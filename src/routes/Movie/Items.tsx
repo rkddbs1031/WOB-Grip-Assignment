@@ -1,6 +1,6 @@
-import { MouseEvent, useState, useEffect } from 'react'
+import { MouseEvent } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import _ from 'lodash'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 import { IListItem } from 'types/movie'
 import { SelectItem, ModalVisible, MovieFavoritList } from 'states/movie'
@@ -15,7 +15,6 @@ interface Props {
 const Items = ({ item }: Props) => {
   const setSelectItem = useSetRecoilState(SelectItem)
   const setModalShow = useSetRecoilState(ModalVisible)
-  const [isChecked, setIsChecked] = useState<Boolean>(false)
 
   // 이 데이터로 즐찾 여부 확인
   const favMovieList = useRecoilValue(MovieFavoritList)
@@ -32,15 +31,6 @@ const Items = ({ item }: Props) => {
     setSelectItem(Object(items))
     setModalShow(true)
   }
-  // console.log(favMovieList)
-  // console.log(_.findIndex(favMovieList, 'imdbID', Number(item.imdbID)))
-
-  // useEffect(() => {
-  //   favMovieList.map((key) => {
-  //     return key.imdbID === item.imdbID ? setIsChecked(true) : setIsChecked(false)
-  //   })
-  // }, [favMovieList, item.imdbID])
-
   return (
     <li>
       <button
@@ -75,9 +65,13 @@ const Items = ({ item }: Props) => {
               <dt>타입</dt>
               <dd className={styles[item.Type]}>{item.Type}</dd>
             </div>
-            {/* Test */}
-            <span style={{ color: 'red' }} />
-            {/* {_.findIndex(favMovieList, { imdbID: item.imdbID })} */}
+            <div className={styles.favStar}>
+              {favMovieList.filter((el) => el.imdbID.includes(item.imdbID)).length > 0 ? (
+                <AiFillStar />
+              ) : (
+                <AiOutlineStar />
+              )}
+            </div>
           </div>
         </dl>
       </button>
