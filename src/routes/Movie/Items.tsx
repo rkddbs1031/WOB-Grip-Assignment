@@ -1,5 +1,6 @@
-import { MouseEvent, useState } from 'react'
-import { useRecoilState, useSetRecoilState } from 'recoil'
+import { MouseEvent, useState, useEffect } from 'react'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import _ from 'lodash'
 
 import { IListItem } from 'types/movie'
 import { SelectItem, ModalVisible, MovieFavoritList } from 'states/movie'
@@ -17,7 +18,7 @@ const Items = ({ item }: Props) => {
   const [isChecked, setIsChecked] = useState<Boolean>(false)
 
   // 이 데이터로 즐찾 여부 확인
-  const favMovieList = useRecoilState(MovieFavoritList)
+  const favMovieList = useRecoilValue(MovieFavoritList)
 
   const handleModal = (e: MouseEvent<HTMLButtonElement>) => {
     const { poster, title, year, type, id } = e.currentTarget.dataset
@@ -31,10 +32,12 @@ const Items = ({ item }: Props) => {
     setSelectItem(Object(items))
     setModalShow(true)
   }
+  // console.log(favMovieList)
+  // console.log(_.findIndex(favMovieList, 'imdbID', Number(item.imdbID)))
 
   // useEffect(() => {
-  //   favMovieList[0].map(( key ) => {
-  //     key.imdbID === item.imdbID ? setIsChecked(true) : setIsChecked(false)
+  //   favMovieList.map((key) => {
+  //     return key.imdbID === item.imdbID ? setIsChecked(true) : setIsChecked(false)
   //   })
   // }, [favMovieList, item.imdbID])
 
@@ -70,20 +73,11 @@ const Items = ({ item }: Props) => {
               <dt>연도</dt>
               <dd className={styles.year}>{item.Year}</dd>
               <dt>타입</dt>
-              <dd className={styles.type}>{item.Type}</dd>
+              <dd className={styles[item.Type]}>{item.Type}</dd>
             </div>
             {/* Test */}
-            <span style={{ color: 'red' }}>
-              {
-                //  favMovieList[0].map((key) => (
-                //    key.imdbID === item.imdbID ? (
-                //      <span>즐찾 있음!!</span>
-                //    ) : (
-                //      <span>즐찾 없음!!</span>
-                //    )
-                //  ))
-              }
-            </span>
+            <span style={{ color: 'red' }} />
+            {/* {_.findIndex(favMovieList, { imdbID: item.imdbID })} */}
           </div>
         </dl>
       </button>
