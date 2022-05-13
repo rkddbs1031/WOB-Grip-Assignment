@@ -1,7 +1,7 @@
-import styles from './Movie.module.scss'
 import Nav from '../_shared/LNB'
 import SearchBox from '../_shared/SearchBox'
 import MovieList from './List'
+import styles from './Movie.module.scss'
 
 const Movie = () => {
   return (

@@ -1,11 +1,11 @@
 import { ChangeEvent, FormEvent } from 'react'
+import { useSetRecoilState } from 'recoil'
+
+import { useState } from 'hooks'
+import { SearchValue, PageNum } from 'states/movie'
 
 import styles from 'routes/Movie/Movie.module.scss'
 import { SearchIcon48 } from 'assets/svgs/movie'
-
-import { useState } from 'hooks'
-import { useSetRecoilState } from 'recoil'
-import { SearchValue, PageNum } from 'states/movie'
 
 const SearchBox = () => {
   const setSearchValue = useSetRecoilState(SearchValue)

@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useState } from 'react'
+import { MouseEvent, useState } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { IListItem } from 'types/movie'
@@ -26,11 +26,11 @@ const Items = ({ item }: Props) => {
       Title: title,
       Type: type,
       Year: year,
-      imdbID: id
+      imdbID: id,
     }
     setSelectItem(Object(items))
     setModalShow(true)
-  } 
+  }
 
   // useEffect(() => {
   //   favMovieList[0].map(( key ) => {
@@ -38,20 +38,27 @@ const Items = ({ item }: Props) => {
   //   })
   // }, [favMovieList, item.imdbID])
 
-  return(
+  return (
     <li>
-      <button type='button' className={styles.movieBtn} 
-        data-poster={item.Poster} data-title={item.Title} data-type={item.Type} data-year={item.Year} data-id={item.imdbID}
+      <button
+        type='button'
+        className={styles.movieBtn}
+        data-poster={item.Poster}
+        data-title={item.Title}
+        data-type={item.Type}
+        data-year={item.Year}
+        data-id={item.imdbID}
         onClick={handleModal}
       >
         <dl>
           <div className={styles.imgInfo}>
             <dt>포스터</dt>
             <dd className={styles.imgWrap}>
-              {
-                item.Poster !== 'N/A' ? <div className={styles.img} style={{backgroundImage: `url(${item.Poster})`}} />
-                : <ImgNone />
-              }
+              {item.Poster !== 'N/A' ? (
+                <div className={styles.img} style={{ backgroundImage: `url(${item.Poster})` }} />
+              ) : (
+                <ImgNone />
+              )}
             </dd>
           </div>
           <div className={styles.infoWrap}>
@@ -66,15 +73,15 @@ const Items = ({ item }: Props) => {
               <dd className={styles.type}>{item.Type}</dd>
             </div>
             {/* Test */}
-            <span style={{color: 'red'}}>
+            <span style={{ color: 'red' }}>
               {
-              //  favMovieList[0].map((key) => (
-              //    key.imdbID === item.imdbID ? (
-              //      <span>즐찾 있음!!</span> 
-              //    ) : (
-              //      <span>즐찾 없음!!</span>
-              //    )
-              //  ))  
+                //  favMovieList[0].map((key) => (
+                //    key.imdbID === item.imdbID ? (
+                //      <span>즐찾 있음!!</span>
+                //    ) : (
+                //      <span>즐찾 없음!!</span>
+                //    )
+                //  ))
               }
             </span>
           </div>
