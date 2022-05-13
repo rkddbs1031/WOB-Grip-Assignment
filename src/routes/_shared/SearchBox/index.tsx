@@ -8,17 +8,16 @@ import { useSetRecoilState } from 'recoil'
 import { SearchValue, PageNum } from 'states/movie'
 
 const SearchBox = () => {
-
   const setSearchValue = useSetRecoilState(SearchValue)
-  const [ value, setValue ] = useState('')
+  const [value, setValue] = useState('')
   const setPage = useSetRecoilState(PageNum)
-  
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e?.preventDefault()
     setSearchValue(value)
     setPage(1)
     // 처음에는 page를 1로 리셋
-  } 
+  }
 
   const handleSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => setValue(e.currentTarget.value)
 

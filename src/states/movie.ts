@@ -15,31 +15,31 @@ export const SelectItem = atom<IListItem[]>({
   key: '#SelectItem',
   default: [
     {
-     Title: '',
-     Type: '',
-     Year: '',
-     imdbID: '',
-     Poster: ''
-   }
-  ]
+      Title: '',
+      Type: '',
+      Year: '',
+      imdbID: '',
+      Poster: '',
+    },
+  ],
 })
 
 export const ModalVisible = atom<Boolean>({
   key: '#ModalVisible',
-  default: false
+  default: false,
 })
 
 export const MovieData = atom<IListItem[]>({
   key: '#MovieData',
-  default: []
+  default: [],
 })
 
 export const PageNum = atom({
   key: '#PageNum',
-  default: 1
+  default: 1,
 })
 
 export const SearchValue = atom<string>({
   key: '#SearchValue',
-  default: ''
+  default: '',
 })

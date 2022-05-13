@@ -5,3 +5,4 @@ proseWrap: never
 singleQuote: true
 htmlWhitespaceSensitivity: "css"
 endOfLine: "lf"
+

@@ -9,11 +9,11 @@ const App = () => {
   return (
     <div className={styles.appWrapper}>
       <div className={styles.app}>
-        <Routes >
-          <Route path='/' element={<Movie/>}  />
-          <Route path=':favorites' element={ <Favorites /> } />
-          <Route path='*' element={ <div> 404 </div> } />
-        </Routes >
+        <Routes>
+          <Route path='/' element={<Movie />} />
+          <Route path=':favorites' element={<Favorites />} />
+          <Route path='*' element={<div> 404 </div>} />
+        </Routes>
       </div>
     </div>
   )
