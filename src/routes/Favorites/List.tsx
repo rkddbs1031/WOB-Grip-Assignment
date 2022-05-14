@@ -2,14 +2,15 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 
 import { useUnmount } from 'hooks'
 import { MovieFavoritList, ModalVisible } from 'states/movie'
+import { IListItem } from 'types/movie'
 
-import styles from './Favorite.module.scss'
 import FavItems from './Items'
 import Modal from '../_shared/Modal'
+import styles from './Favorite.module.scss'
 
 const FavList = () => {
-  const favMovieList = useRecoilValue(MovieFavoritList)
-  const [modalShow, setModalShow] = useRecoilState(ModalVisible)
+  const favMovieList = useRecoilValue<IListItem[]>(MovieFavoritList)
+  const [modalShow, setModalShow] = useRecoilState<Boolean>(ModalVisible)
 
   useUnmount(() => {
     // 모달 닫지 않고 넘어가도 reset

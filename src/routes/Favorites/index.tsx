@@ -1,5 +1,6 @@
 import Nav from '../_shared/LNB'
 import FavList from './List'
+
 import styles from './Favorite.module.scss'
 
 const Favorites = () => {

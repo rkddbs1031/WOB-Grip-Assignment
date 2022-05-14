@@ -5,19 +5,19 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { IListItem } from 'types/movie'
 import { SelectItem, ModalVisible, MovieFavoritList } from 'states/movie'
 
+import ImgNone from '../_shared/MovieImgNone'
 import styles from './Movie.module.scss'
-import ImgNone from '../_shared/MovieImage'
 
 interface Props {
   item: IListItem
 }
 
 const Items = ({ item }: Props) => {
-  const setSelectItem = useSetRecoilState(SelectItem)
-  const setModalShow = useSetRecoilState(ModalVisible)
+  const setSelectItem = useSetRecoilState<IListItem[]>(SelectItem)
+  const setModalShow = useSetRecoilState<Boolean>(ModalVisible)
 
   // 이 데이터로 즐찾 여부 확인
-  const favMovieList = useRecoilValue(MovieFavoritList)
+  const favMovieList = useRecoilValue<IListItem[]>(MovieFavoritList)
 
   const handleModal = (e: MouseEvent<HTMLButtonElement>) => {
     const { poster, title, year, type, id } = e.currentTarget.dataset

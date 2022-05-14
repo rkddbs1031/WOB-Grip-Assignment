@@ -4,16 +4,16 @@ import { useSetRecoilState } from 'recoil'
 import { IListItem } from 'types/movie'
 import { ModalVisible, SelectItem } from 'states/movie'
 
+import ImgNone from '../_shared/MovieImgNone'
 import styles from './Favorite.module.scss'
-import ImgNone from '../_shared/MovieImage'
 
 interface Props {
   items: IListItem
 }
 
 const FavItems = ({ items }: Props) => {
-  const setModalShow = useSetRecoilState(ModalVisible)
-  const setSelectItem = useSetRecoilState(SelectItem)
+  const setModalShow = useSetRecoilState<Boolean>(ModalVisible)
+  const setSelectItem = useSetRecoilState<IListItem[]>(SelectItem)
 
   const handleModal = (e: MouseEvent<HTMLButtonElement>) => {
     const { poster, title, year, type, id } = e.currentTarget.dataset

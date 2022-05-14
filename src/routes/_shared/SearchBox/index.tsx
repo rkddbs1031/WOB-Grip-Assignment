@@ -4,13 +4,13 @@ import { useSetRecoilState } from 'recoil'
 import { useState, useMount } from 'hooks'
 import { SearchValue, PageNum } from 'states/movie'
 
-import styles from 'routes/Movie/Movie.module.scss'
 import { SearchIcon48 } from 'assets/svgs/movie'
+import styles from 'routes/Movie/Movie.module.scss'
 
 const SearchBox = () => {
-  const setSearchValue = useSetRecoilState(SearchValue)
-  const [value, setValue] = useState('')
-  const setPage = useSetRecoilState(PageNum)
+  const setSearchValue = useSetRecoilState<string>(SearchValue)
+  const [value, setValue] = useState<string>('')
+  const setPage = useSetRecoilState<number>(PageNum)
   const inputRef = React.useRef<HTMLInputElement | null>(null)
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

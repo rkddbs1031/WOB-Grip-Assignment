@@ -1,6 +1,6 @@
+import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil'
 import { useInView } from 'react-intersection-observer'
 import { useUpdateEffect } from 'react-use'
-import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil'
 
 import { useState, useUnmount, useCallback } from 'hooks'
 import { SearchValue, MovieData, ModalVisible, PageNum } from 'states/movie'

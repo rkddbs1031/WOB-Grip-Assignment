@@ -1,14 +1,15 @@
 import { useSetRecoilState, useRecoilState, useRecoilValue } from 'recoil'
 
 import { ModalVisible, MovieFavoritList, SelectItem } from 'states/movie'
-import { Favorite3, Favorite2 } from 'assets/svgs/movie'
+import { IListItem } from 'types/movie'
 
+import { Favorite3, Favorite2 } from 'assets/svgs/movie'
 import styles from 'routes/Routes.module.scss'
 
 const Modal = () => {
-  const setModalValue = useSetRecoilState(ModalVisible)
-  const [favMovieList, setFavMovieList] = useRecoilState(MovieFavoritList)
-  const selectItem = useRecoilValue(SelectItem)
+  const setModalValue = useSetRecoilState<Boolean>(ModalVisible)
+  const [favMovieList, setFavMovieList] = useRecoilState<IListItem[]>(MovieFavoritList)
+  const selectItem = useRecoilValue<IListItem[]>(SelectItem)
 
   const handleRemoveFavorite = () => {
     setFavMovieList(favMovieList.filter((item) => item.imdbID !== Object(selectItem).imdbID))

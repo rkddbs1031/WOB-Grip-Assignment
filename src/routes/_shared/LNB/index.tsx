@@ -1,7 +1,8 @@
 import cx from 'classnames'
 import { NavLink } from 'react-router-dom'
-import styles from './LNB.module.scss'
+
 import { SearchIcon24, Favorite1 } from 'assets/svgs/movie'
+import styles from './LNB.module.scss'
 
 const LNB = () => {
   return (
