@@ -76,7 +76,7 @@ const MovieList = () => {
           {modalShow && <Modal />}
         </>
       ) : (
-        <span className={styles.result}>검색 결과가 없습니다</span>
+        <span className={styles.result}>검색 결과가 없습니다.</span>
       )}
       {isLoading && inView && (page - 1) * 10 < totalResults ? (
         <div className={styles.loading}>
