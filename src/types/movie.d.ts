@@ -1,3 +1,8 @@
+export interface IParams {
+  keyword: string
+  pageNum: number
+}
+
 interface IListItem {
   Title: string
   Year: string

@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { AiFillStar, AiOutlineStar, AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
 import { IListItem } from 'types/movie'
 import { SelectItem, ModalVisible, MovieFavoritList } from 'states/movie'

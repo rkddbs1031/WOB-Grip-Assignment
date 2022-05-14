@@ -8,9 +8,6 @@ import FavItems from './Items'
 import Modal from '../_shared/Modal'
 
 const FavList = () => {
-  // 1. 로컬에 있는 거 가져오기
-  // 2. map으로 나열하기
-
   const favMovieList = useRecoilValue(MovieFavoritList)
   const [modalShow, setModalShow] = useRecoilState(ModalVisible)
 

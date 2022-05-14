@@ -1,5 +1,4 @@
 import { useSetRecoilState, useRecoilState, useRecoilValue } from 'recoil'
-import { useParams } from 'react-router-dom'
 
 import { ModalVisible, MovieFavoritList, SelectItem } from 'states/movie'
 import { Favorite3, Favorite2 } from 'assets/svgs/movie'
@@ -7,8 +6,6 @@ import { Favorite3, Favorite2 } from 'assets/svgs/movie'
 import styles from 'routes/Routes.module.scss'
 
 const Modal = () => {
-  const params = useParams()
-
   const setModalValue = useSetRecoilState(ModalVisible)
   const [favMovieList, setFavMovieList] = useRecoilState(MovieFavoritList)
   const selectItem = useRecoilValue(SelectItem)
@@ -29,7 +26,7 @@ const Modal = () => {
 
   return (
     <div className={styles.modalWrap}>
-      {params.favorites === 'favorites' ? (
+      {favMovieList.filter((el) => el.imdbID.includes(Object(selectItem).imdbID)).length > 0 ? (
         <button type='button' className={styles.favRemoveBtn} onClick={handleRemoveFavorite}>
           <Favorite2 />
           <span>즐겨찾기 취소</span>
