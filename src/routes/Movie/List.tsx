@@ -25,8 +25,8 @@ const MovieList = () => {
   const getItems = useCallback(
     (params: IParams) => {
       const { keyword, pageNum } = params
+      setLoading(false)
       if (keyword && pageNum) {
-        setLoading(false)
         getMovieSearchApi({
           s: keyword,
           page: pageNum,
@@ -40,8 +40,6 @@ const MovieList = () => {
           setPage((prev) => prev + 1)
         })
         setLoading(true)
-      } else {
-        setLoading(false)
       }
     },
     [setData, setPage]

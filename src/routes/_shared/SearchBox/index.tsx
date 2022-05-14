@@ -28,7 +28,7 @@ const SearchBox = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.searchBox}>
-      <input ref={inputRef} type='text' placeholder='search' onChange={handleSearchKeyword} />
+      <input ref={inputRef} type='text' placeholder='3글자 이상으로 검색해 주세요.' onChange={handleSearchKeyword} />
       <button type='submit' className={styles.searchBtn}>
         <SearchIcon48 className={styles.submit} />
       </button>
