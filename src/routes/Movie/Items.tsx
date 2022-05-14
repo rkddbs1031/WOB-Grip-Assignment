@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import { AiFillStar, AiOutlineStar, AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
 import { IListItem } from 'types/movie'
 import { SelectItem, ModalVisible, MovieFavoritList } from 'states/movie'
@@ -65,11 +65,13 @@ const Items = ({ item }: Props) => {
               <dt>타입</dt>
               <dd className={styles[item.Type]}>{item.Type}</dd>
             </div>
+          </div>
+          <div className={styles.favWrap}>
             <div className={styles.favStar}>
               {favMovieList.filter((el) => el.imdbID.includes(item.imdbID)).length > 0 ? (
-                <AiFillStar />
+                <AiFillHeart />
               ) : (
-                <AiOutlineStar />
+                <AiOutlineHeart />
               )}
             </div>
           </div>

@@ -27,8 +27,8 @@
 
     h2 {
       font-size: 13px;
-      margin-bottom: 20px;
       color: colors.$TITLE;
+      margin-bottom: 10px;
 
       span {
         display: inline-block;
@@ -51,20 +51,31 @@
     .list {
       height: 500px;
       overflow-y: scroll;
-
+      padding-top: 10px;
+      padding-bottom: 10px;
+      
       li {
 
         +li {
-          margin-top: 20px;
+          margin-top: 16px;
         }
 
         .favBtn {
           border-radius: 10px;
           padding: 14px;
           width: 100%;
-          height: 140px;
+          height: 120px;
           background: colors.$BOX_COLOR;
-          box-shadow: colors.$BOX_SHADOW;
+          border: 1px solid colors.$BOX_BORDER;
+          transition: 0.3s;
+
+          &:hover {
+            background: #d9dff836;
+            
+            .img {
+              // transform: scale(1.03);
+            }
+          }
 
           dl {
             display: flex;
@@ -73,13 +84,14 @@
             height: 100%;
         
             .imgInfo {
-              width: 43%;
+              width: 30%;
               height: 100%;
         
               .imgWrap {
+                overflow: hidden;
                 height: inherit;
                 border-radius: 5px;
-        
+
                 .img {
                   background-position: center;
                   background-repeat: no-repeat;
@@ -92,7 +104,7 @@
             }
         
             .infoWrap {
-              width: 50%;
+              width: 65%;
               display: flex;
               flex-direction: column;
               align-items: flex-start;
@@ -102,11 +114,12 @@
                 color: colors.$TITLE;
                 font-weight: 600;
                 font-size: 15px;
+                line-height: 17px;
                 margin-bottom: 7px;
                 white-space: normal;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
+                -webkit-line-clamp: 2;
                 overflow: hidden;
               }
         
@@ -120,12 +133,12 @@
                 .game {
                   position: relative;
                   font-weight: 600;
-                  font-size: 13px;
                 }
               
                 .year {
                   margin-right: 20px;
                   color: colors.$YEAR;
+                  font-size: 13px;
               
                   &::after {
                     position: absolute;
@@ -142,8 +155,9 @@
                 .series,
                 .movie,
                 .game {
-                  padding: 2px 7px 3px;
+                  padding: 0px 4px 2px;
                   border-radius: 4px;
+                  font-size: 12px;
                 }
               
                 .series {

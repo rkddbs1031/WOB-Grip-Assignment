@@ -6,7 +6,7 @@
   height: 720px;
   padding: 40px 25px;
   background-color: colors.$APP_BG;
-  border-radius: 50px; 
+  border-radius: 50px;
   box-shadow: 0px 1px 4px colors.$APP_BOX_SHADOW;
   color: colors.$WHITE;
   overflow: hidden;
@@ -34,13 +34,13 @@
 
       input {
         position: relative;
-        padding: 15px 20px;
+        padding: 14px;
         background: colors.$BOX_COLOR;
         border-radius: 20px;
+        border: 1px solid colors.$BOX_BORDER;
         color: colors.$TITLE;
         width: 100%;
         font-size: 14px;
-        box-shadow: colors.$BOX_SHADOW;
 
         &::placeholder {
           font-size: 13px;
@@ -64,39 +64,46 @@
       }
     }
   }
-  
+
   .section2 {
     .searchTitle {
       font-size: 13px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: colors.$SERCH_TITLE;
     }
+
     .listWrap {
       height: 480px;
       overflow-y: scroll;
+      padding-bottom: 20px;
     }
+
     .lists {
-      
+      padding-bottom: 20px;
 
       li {
 
-        + li {
-          margin-top: 20px;
+        +li {
+          margin-top: 16px;
         }
 
         .movieBtn {
           border-radius: 10px;
           padding: 14px;
           width: 100%;
-          height: 130px;
+          height: 120px;
           background: colors.$BOX_COLOR;
-          box-shadow: colors.$BOX_SHADOW;
           border: 1px solid colors.$BOX_BORDER;
-          transition: 0.4s;
+          transition: 0.3s;
 
           &:hover {
-            transform: translateY(-5px);
+            background: #d9dff836;
+
+            .img {
+              transform: scale(1.03);
+            }
           }
+
           dl {
             display: flex;
             justify-content: space-between;
@@ -104,10 +111,11 @@
             height: 100%;
 
             .imgInfo {
-              width: 43%;
+              width: 30%;
               height: 100%;
 
               .imgWrap {
+                overflow: hidden;
                 height: inherit;
                 border-radius: 5px;
 
@@ -118,12 +126,13 @@
                   width: 100%;
                   height: 100%;
                   border-radius: 5px;
+                  transition: 0.3s;
                 }
               }
             }
 
             .infoWrap {
-              width: 50%;
+              width: 55%;
               display: flex;
               flex-direction: column;
               align-items: flex-start;
@@ -152,12 +161,12 @@
                 .game {
                   position: relative;
                   font-weight: 600;
-                  font-size: 13px;
                 }
 
                 .year {
                   margin-right: 20px;
                   color: colors.$YEAR;
+                  font-size: 13px;
 
                   &::after {
                     position: absolute;
@@ -174,32 +183,45 @@
                 .series,
                 .movie,
                 .game {
-                  padding: 2px 7px 3px;
+                  padding: 0px 4px 2px;
                   border-radius: 4px;
+                  font-size: 12px;
                 }
 
                 .series {
                   border: 1px solid colors.$SERIES_COLOR;
                   color: colors.$SERIES_COLOR;
                 }
+
                 .movie {
                   border: 1px solid colors.$MOVIE_COLOR;
                   color: colors.$MOVIE_COLOR;
                 }
+
                 .game {
                   border: 1px solid colors.$GAME_COLOR;
                   color: colors.$GAME_COLOR;
                 }
               }
 
+            }
+
+            .favWrap {
+              width: 7%;
+
               .favStar {
-                border: 1px solid colors.$FAV_STAR;
-                padding: 3px 4px 1px;
+                width: 21px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-right: 1px;
                 border-radius: 50%;
-                margin-top: 5px;
 
                 svg {
+                  transition: 0.3s;
                   color: colors.$FAV_STAR;
+                  transform: scale(1.2);
                 }
               }
             }
@@ -238,14 +260,17 @@
         &:nth-child(2) {
           animation-delay: 0.2s;
         }
+
         &:nth-child(3) {
           animation-delay: 0.3s;
         }
       }
+
       @keyframes loading {
-        0% { 
+        0% {
           transform: translateY(-3px);
         }
+
         100% {
           transform: translateY(3px);
         }
