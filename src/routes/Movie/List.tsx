@@ -1,7 +1,7 @@
 import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil'
 import { useInView } from 'react-intersection-observer'
 import { useUpdateEffect } from 'react-use'
-
+import { useRef } from 'react'
 import { useState, useUnmount, useCallback } from 'hooks'
 import { SearchValue, MovieData, ModalVisible, PageNum } from 'states/movie'
 import { getMovieSearchApi } from 'services/movie'
@@ -21,6 +21,7 @@ const MovieList = () => {
   const [totalResults, setTotal] = useState<number>(0)
   const [isLoading, setLoading] = useState<Boolean>(false)
   const [ref, inView] = useInView()
+  const listScroll = useRef<HTMLDivElement>(null)
 
   const getItems = useCallback(
     (params: IParams) => {
@@ -32,6 +33,7 @@ const MovieList = () => {
           page: pageNum,
         }).then((res) => {
           if (pageNum === 1) {
+            listScroll.current?.scrollTo({ top: 0 })
             setData(res.data.Search)
             setTotal(Number(res.data.totalResults))
           } else {
@@ -62,7 +64,7 @@ const MovieList = () => {
   })
 
   return (
-    <div className={styles.listWrap}>
+    <div className={styles.listWrap} ref={listScroll}>
       {data && getSearchValue ? (
         <>
           <h2 className={styles.searchTitle}>검색 결과</h2>
