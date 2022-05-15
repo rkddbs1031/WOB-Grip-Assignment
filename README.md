@@ -1,5 +1,9 @@
 ## 그립컴퍼니의 기업 과제 🙂
 - 영화를 검색하고 즐겨찾기로 등록할 수 있는  React Movie App 구현하기 🎞</br></br>
+### 기술 스택
+> Rect, TypeScript, Scss, Recoil
+
+</br>
 
 ### 1. 기획✏
 #### 1.1 ) 검색 페이지
@@ -48,14 +52,15 @@
 ### 4. 결과물
 #### 4-1) 검색 페이지
 
-https://user-images.githubusercontent.com/65527334/168425559-1abdb2f9-8272-42ba-99c8-710ad72a9077.mp4
+https://user-images.githubusercontent.com/65527334/168454767-02ed12b3-011b-49db-af31-3108399807cf.mp4
 
 
 </br>
 
 #### 4-2) 즐겨찾기 페이지
 
-https://user-images.githubusercontent.com/65527334/168425685-0465fb04-211f-43d5-bb50-a35fab6bc301.mp4
+https://user-images.githubusercontent.com/65527334/168454864-e46d4400-a189-4665-a48e-5333031db4f4.mp4
+
 
 
 ### 5. 마무리하며 느낀점
