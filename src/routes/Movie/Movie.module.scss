@@ -1,280 +1,254 @@
 @use '/src/styles/constants/colors';
 
-.movieWrap {
-  position: relative;
-  width: 360px;
-  height: 720px;
-  padding: 40px 25px;
-  background-color: colors.$APP_BG;
-  border-radius: 50px;
-  box-shadow: 0px 1px 4px colors.$APP_BOX_SHADOW;
-  color: colors.$WHITE;
-  overflow: hidden;
+.section1 {
+  margin-bottom: 20px;
 
-  .header {
-    margin-bottom: 10px;
+  .searchBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: inherit;
 
-    .movieTitle {
-      font-weight: 800;
-      color: colors.$LOGO;
-      font-size: 20px;
-      margin-bottom: 20px;
-      font-family: 'Poppins', sans-serif;
-    }
-  }
-
-  .section1 {
-    margin-bottom: 20px;
-
-    .searchBox {
+    input {
       position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: inherit;
+      width: 100%;
+      padding: 14px;
+      font-size: 14px;
+      color: colors.$TITLE;
+      background: colors.$BOX_COLOR;
+      border: 1px solid colors.$BOX_BORDER;
+      border-radius: 20px;
 
-      input {
-        position: relative;
-        padding: 14px;
-        background: colors.$BOX_COLOR;
-        border-radius: 20px;
-        border: 1px solid colors.$BOX_BORDER;
-        color: colors.$TITLE;
-        width: 100%;
-        font-size: 14px;
-
-        &::placeholder {
-          font-size: 11px;
-          color: colors.$SERCH_TITLE;
-        }
-      }
-
-      .searchBtn {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        color: colors.$WHITE;
-        font-size: 12px;
-        border-radius: 50%;
-        padding: 10px;
-
-        svg {
-          width: 25px;
-        }
-      }
-    }
-  }
-
-  .section2 {
-    .searchTitle {
-      font-size: 13px;
-      margin-bottom: 15px;
-      color: colors.$SERCH_TITLE;
-    }
-
-    .listWrap {
-      height: 490px;
-      overflow-y: scroll;
-      padding-bottom: 20px;
-    }
-
-    .lists {
-      padding-bottom: 20px;
-
-      li {
-
-        +li {
-          margin-top: 16px;
-        }
-
-        .movieBtn {
-          border-radius: 10px;
-          padding: 14px;
-          width: 100%;
-          height: 120px;
-          background: colors.$BOX_COLOR;
-          border: 1px solid colors.$BOX_BORDER;
-          transition: 0.3s;
-
-          &:hover {
-            background: #d9dff836;
-
-            .img {
-              transform: scale(1.03);
-            }
-          }
-
-          dl {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            height: 100%;
-
-            .imgInfo {
-              width: 30%;
-              height: 100%;
-
-              .imgWrap {
-                overflow: hidden;
-                height: inherit;
-                border-radius: 5px;
-
-                .img {
-                  background-position: center;
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                  width: 100%;
-                  height: 100%;
-                  border-radius: 5px;
-                  transition: 0.3s;
-                }
-              }
-            }
-
-            .infoWrap {
-              width: 55%;
-              display: flex;
-              flex-direction: column;
-              align-items: flex-start;
-              text-align: left;
-
-              .title {
-                color: colors.$TITLE;
-                font-weight: 600;
-                font-size: 15px;
-                line-height: 17px;
-                margin-bottom: 7px;
-                white-space: normal;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                overflow: hidden;
-              }
-
-              .ytWrap {
-                display: flex;
-                align-items: center;
-
-                .year,
-                .series,
-                .movie,
-                .game {
-                  position: relative;
-                  font-weight: 600;
-                }
-
-                .year {
-                  margin-right: 20px;
-                  color: colors.$YEAR;
-                  font-size: 13px;
-
-                  &::after {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: -10px;
-                    display: block;
-                    content: '';
-                    height: 100%;
-                    border-right: 1px solid colors.$YEAR
-                  }
-                }
-
-                .series,
-                .movie,
-                .game {
-                  padding: 0px 4px 2px;
-                  border-radius: 4px;
-                  font-size: 12px;
-                }
-
-                .series {
-                  border: 1px solid colors.$SERIES_COLOR;
-                  color: colors.$SERIES_COLOR;
-                }
-
-                .movie {
-                  border: 1px solid colors.$MOVIE_COLOR;
-                  color: colors.$MOVIE_COLOR;
-                }
-
-                .game {
-                  border: 1px solid colors.$GAME_COLOR;
-                  color: colors.$GAME_COLOR;
-                }
-              }
-
-            }
-
-            .favWrap {
-              width: 7%;
-
-              .favStar {
-                width: 21px;
-                height: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding-right: 1px;
-                border-radius: 50%;
-
-                svg {
-                  transition: 0.3s;
-                  color: colors.$FAV_STAR;
-                  transform: scale(1.2);
-                }
-              }
-            }
-          }
-
-          dt {
-            display: none;
-          }
-        }
+      &::placeholder {
+        font-size: 11px;
+        color: colors.$SERCH_TITLE;
       }
     }
 
-    .result {
-      color: colors.$RESULT;
-      font-size: 13px;
-    }
-
-    .loading {
-      display: flex;
+    .searchBtn {
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
+      right: 0;
+      padding: 10px;
+      font-size: 12px;
+      color: colors.$WHITE;
+      border-radius: 50%;
+      transform: translateY(-50%);
 
-      span {
-        position: relative;
-        display: block;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: colors.$RESULT;
-        margin: 0 3px;
-        animation: loading 0.3s alternate infinite forwards;
+      svg {
+        width: 25px;
+      }
+    }
+  }
+}
 
-        &:nth-child(2) {
-          animation-delay: 0.2s;
-        }
+.section2 {
+  .searchTitle {
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: colors.$SERCH_TITLE;
+  }
 
-        &:nth-child(3) {
-          animation-delay: 0.3s;
-        }
+  .listWrap {
+    height: 490px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+  }
+
+  .lists {
+    padding-bottom: 20px;
+
+    li {
+      +li {
+        margin-top: 16px;
       }
 
-      @keyframes loading {
-        0% {
-          transform: translateY(-3px);
+      .movieBtn {
+        width: 100%;
+        height: 120px;
+        padding: 14px;
+        background: colors.$BOX_COLOR;
+        border: 1px solid colors.$BOX_BORDER;
+        border-radius: 10px;
+        transition: 0.3s;
+
+        &:hover {
+          background: #d9dff836;
+
+          .img {
+            transform: scale(1.03);
+          }
         }
 
-        100% {
-          transform: translateY(3px);
+        dl {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 100%;
+
+          .imgInfo {
+            width: 30%;
+            height: 100%;
+
+            .imgWrap {
+              height: inherit;
+              overflow: hidden;
+              border-radius: 5px;
+
+              .img {
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                border-radius: 5px;
+                transition: 0.3s;
+              }
+            }
+          }
+
+          .infoWrap {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 55%;
+            text-align: left;
+
+            .title {
+              display: box;
+              margin-bottom: 7px;
+              overflow: hidden;
+              font-size: 15px;
+              font-weight: 600;
+              line-height: 17px;
+              color: colors.$TITLE;
+              white-space: normal;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+            }
+
+            .ytWrap {
+              display: flex;
+              align-items: center;
+
+              .year,
+              .series,
+              .movie,
+              .game {
+                position: relative;
+                font-weight: 600;
+              }
+
+              .year {
+                margin-right: 20px;
+                font-size: 13px;
+                color: colors.$YEAR;
+
+                &::after {
+                  position: absolute;
+                  top: 50%;
+                  right: -10px;
+                  display: block;
+                  height: 100%;
+                  content: '';
+                  border-right: 1px solid colors.$YEAR;
+                  transform: translateY(-50%);
+                }
+              }
+
+              .series,
+              .movie,
+              .game {
+                padding: 0 4px 2px;
+                font-size: 12px;
+                border-radius: 4px;
+              }
+
+              .series {
+                color: colors.$SERIES_COLOR;
+                border: 1px solid colors.$SERIES_COLOR;
+              }
+
+              .movie {
+                color: colors.$MOVIE_COLOR;
+                border: 1px solid colors.$MOVIE_COLOR;
+              }
+
+              .game {
+                color: colors.$GAME_COLOR;
+                border: 1px solid colors.$GAME_COLOR;
+              }
+            }
+          }
+
+          .favWrap {
+            width: 7%;
+
+            .favStar {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 21px;
+              height: 20px;
+              padding-right: 1px;
+              border-radius: 50%;
+
+              svg {
+                color: colors.$FAV_STAR;
+                transition: 0.3s;
+                transform: scale(1.2);
+              }
+            }
+          }
         }
+
+        dt {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .result {
+    font-size: 13px;
+    color: colors.$RESULT;
+  }
+
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    transform: translate(-50%, -50%);
+
+    span {
+      position: relative;
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin: 0 3px;
+      background: colors.$RESULT;
+      border-radius: 50%;
+      animation: loading 0.3s alternate infinite forwards;
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+    }
+
+    @keyframes loading {
+      0% {
+        transform: translateY(-3px);
+      }
+
+      100% {
+        transform: translateY(3px);
       }
     }
   }

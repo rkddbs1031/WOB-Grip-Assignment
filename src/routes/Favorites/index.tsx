@@ -5,11 +5,7 @@ import styles from './Favorite.module.scss'
 
 const Favorites = () => {
   return (
-    <main className={styles.favWrap}>
-      <Nav />
-      <header className={styles.header}>
-        <h2 className={styles.favTitle}> MovieApp </h2>
-      </header>
+    <main>
       <section className={styles.section1}>
         <FavList />
       </section>

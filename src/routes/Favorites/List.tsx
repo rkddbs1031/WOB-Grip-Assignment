@@ -30,7 +30,7 @@ const FavList = () => {
       {modalShow && <Modal />}
     </>
   ) : (
-    <span className={styles.result}>즐겨찾기가 없습니다 😖</span>
+    <h2 className={styles.result}>즐겨찾기가 없습니다 😖</h2>
   )
 }
 

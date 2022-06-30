@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 
+import Nav from './_shared/LNB'
 import Movie from './Movie'
 import Favorites from './Favorites'
 
@@ -9,6 +10,10 @@ const App = () => {
   return (
     <div className={styles.appWrapper}>
       <div className={styles.app}>
+        <header className={styles.header}>
+          <h1 className={styles.title}> MovieApp </h1>
+        </header>
+        <Nav />
         <Routes>
           <Route path='/' element={<Movie />} />
           <Route path=':favorites' element={<Favorites />} />
