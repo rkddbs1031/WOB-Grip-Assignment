@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
@@ -16,33 +15,17 @@ const Items = ({ item }: Props) => {
   const setSelectItem = useSetRecoilState<IListItem[]>(SelectItem)
   const setModalShow = useSetRecoilState<Boolean>(ModalVisible)
 
-  // 이 데이터로 즐찾 여부 확인
   const favMovieList = useRecoilValue<IListItem[]>(MovieFavoritList)
 
-  const handleModal = (e: MouseEvent<HTMLButtonElement>) => {
-    const { poster, title, year, type, id } = e.currentTarget.dataset
-    const items = {
-      Poster: poster,
-      Title: title,
-      Type: type,
-      Year: year,
-      imdbID: id,
-    }
+  const handleModal = () => {
+    const { Poster, Title, Year, Type, imdbID } = item
+    const items = { Poster, Title, Type, Year, imdbID }
     setSelectItem(Object(items))
     setModalShow(true)
   }
   return (
     <li>
-      <button
-        type='button'
-        className={styles.movieBtn}
-        data-poster={item.Poster}
-        data-title={item.Title}
-        data-type={item.Type}
-        data-year={item.Year}
-        data-id={item.imdbID}
-        onClick={handleModal}
-      >
+      <button type='button' className={styles.movieBtn} onClick={handleModal}>
         <dl>
           <div className={styles.imgInfo}>
             <dt>포스터</dt>
