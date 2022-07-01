@@ -1,12 +1,11 @@
 import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil'
-import { useInView } from 'react-intersection-observer'
-import { useUpdateEffect } from 'react-use'
-import { useRef } from 'react'
-import { useState, useUnmount, useCallback } from 'hooks'
+import { useState, useUnmount, useRef, useUpdateEffect, useQuery, useInView } from 'hooks'
+
 import { SearchValue, MovieData, ModalVisible, PageNum } from 'states/movie'
 import { getMovieSearchApi } from 'services/movie'
-import { IListItem, IParams } from 'types/movie'
+import { IListItem } from 'types/movie'
 
+import Loading from '../_shared/Loading'
 import MovieItems from './Items'
 import Modal from '../_shared/Modal'
 import styles from './Movie.module.scss'
@@ -14,48 +13,36 @@ import styles from './Movie.module.scss'
 const MovieList = () => {
   const getSearchValue = useRecoilValue<string>(SearchValue)
   const [data, setData] = useRecoilState<IListItem[]>(MovieData)
-  const resetSearchValue = useResetRecoilState(SearchValue)
-  const resetData = useResetRecoilState(MovieData)
   const [modalShow, setModalShow] = useRecoilState<Boolean>(ModalVisible)
   const [page, setPage] = useRecoilState<number>(PageNum)
-  const [totalResults, setTotal] = useState<number>(0)
-  const [isLoading, setLoading] = useState<Boolean>(false)
+  const [totalResults, setTotal] = useState<number>(1)
   const [ref, inView] = useInView()
   const listScroll = useRef<HTMLDivElement>(null)
+  const resetSearchValue = useResetRecoilState(SearchValue)
+  const resetData = useResetRecoilState(MovieData)
 
-  const getItems = useCallback(
-    (params: IParams) => {
-      const { keyword, pageNum } = params
-      setLoading(false)
-      if (keyword && pageNum) {
-        getMovieSearchApi({
-          s: keyword,
-          page: pageNum,
-        }).then((res) => {
-          if (pageNum === 1) {
-            listScroll.current?.scrollTo({ top: 0 })
-            setData(res.data.Search)
-            setTotal(Number(res.data.totalResults))
-          } else {
-            setData((prev) => [...prev, ...res.data.Search])
-          }
-          setPage((prev) => prev + 1)
-        })
-        setLoading(true)
-      }
-    },
-    [setData, setPage]
+  const { isLoading } = useQuery(
+    ['getMovieSearchApi', getSearchValue, page],
+    () =>
+      getMovieSearchApi({ s: getSearchValue, page }).then((res) => {
+        if (page === 1) {
+          listScroll.current?.scrollTo({ top: 0 })
+          setData(res.data.Search)
+        } else setData((prev) => [...prev, ...res.data.Search])
+        setTotal(Number(res.data.totalResults))
+      }),
+    {
+      enabled: !!(getSearchValue && page && (page - 1) * 10 < totalResults),
+      refetchOnWindowFocus: false,
+      useErrorBoundary: true,
+      cacheTime: 5 * 10 * 1000,
+      staleTime: 5 * 10 * 1000,
+    }
   )
 
   useUpdateEffect(() => {
-    getItems({ keyword: getSearchValue, pageNum: page })
-  }, [getSearchValue])
-
-  useUpdateEffect(() => {
-    if (inView && isLoading && page !== 1 && (page - 1) * 10 < totalResults) {
-      getItems({ keyword: getSearchValue, pageNum: page })
-    }
-  }, [getSearchValue, inView])
+    if (inView) setPage((prev) => prev + 1)
+  }, [inView])
 
   useUnmount(() => {
     resetSearchValue()
@@ -65,7 +52,7 @@ const MovieList = () => {
 
   return (
     <div className={styles.listWrap} ref={listScroll}>
-      {data && getSearchValue ? (
+      {data && totalResults > 1 ? (
         <>
           <h2 className={styles.searchTitle}>검색 결과</h2>
           <ul className={styles.lists}>
@@ -73,21 +60,13 @@ const MovieList = () => {
               <MovieItems key={`item-${idx}-${item.imdbID}`} item={item} />
             ))}
           </ul>
+          <div className={styles.target} ref={ref} />
           {modalShow && <Modal />}
         </>
       ) : (
-        <span className={styles.result}>검색 결과가 없습니다.</span>
+        <h2 className={styles.result}>검색 결과가 없습니다.</h2>
       )}
-      {isLoading && inView && (page - 1) * 10 < totalResults ? (
-        <div className={styles.loading}>
-          <span />
-          <span />
-          <span />
-        </div>
-      ) : (
-        <div />
-      )}
-      <div className={styles.target} ref={ref} />
+      {inView && isLoading && <Loading />}
     </div>
   )
 }
