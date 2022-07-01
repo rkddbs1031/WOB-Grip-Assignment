@@ -13,7 +13,6 @@ const FavList = () => {
   const [modalShow, setModalShow] = useRecoilState<Boolean>(ModalVisible)
 
   useUnmount(() => {
-    // 모달 닫지 않고 넘어가도 reset
     setModalShow(false)
   })
 

@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react'
 import { useSetRecoilState } from 'recoil'
 
 import { IListItem } from 'types/movie'
@@ -15,30 +14,15 @@ const FavItems = ({ items }: Props) => {
   const setModalShow = useSetRecoilState<Boolean>(ModalVisible)
   const setSelectItem = useSetRecoilState<IListItem[]>(SelectItem)
 
-  const handleModal = (e: MouseEvent<HTMLButtonElement>) => {
-    const { poster, title, year, type, id } = e.currentTarget.dataset
-    const item = {
-      Poster: poster,
-      Title: title,
-      Type: type,
-      Year: year,
-      imdbID: id,
-    }
+  const handleModal = () => {
+    const { Poster, Title, Year, Type, imdbID } = items
+    const item = { Poster, Title, Type, Year, imdbID }
     setSelectItem(Object(item))
     setModalShow(true)
   }
   return (
     <li>
-      <button
-        type='button'
-        className={styles.favBtn}
-        data-poster={items.Poster}
-        data-title={items.Title}
-        data-type={items.Type}
-        data-year={items.Year}
-        data-id={items.imdbID}
-        onClick={handleModal}
-      >
+      <button type='button' className={styles.favBtn} onClick={handleModal}>
         <dl>
           <div className={styles.imgInfo}>
             <dt>포스터</dt>
