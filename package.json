@@ -39,7 +39,7 @@
     "i18n-iso-countries": "^7.4.0",
     "i18next": "^21.8.0",
     "i18next-browser-languagedetector": "^6.1.4",
-    "react": "^18.1.0",
+    "react": "^17.0.0",
     "react-dom": "^18.1.0",
     "react-i18next": "^11.16.9",
     "react-icons": "^4.3.1",
