@@ -16,7 +16,7 @@ const App = () => {
         <Nav />
         <Routes>
           <Route path='/' element={<Movie />} />
-          <Route path=':favorites' element={<Favorites />} />
+          <Route path='favorites' element={<Favorites />} />
           <Route path='*' element={<div> 404 </div>} />
         </Routes>
       </div>

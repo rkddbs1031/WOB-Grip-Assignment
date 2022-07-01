@@ -6,7 +6,7 @@ import { getMovieSearchApi } from 'services/movie'
 import { IListItem } from 'types/movie'
 
 import Loading from '../_shared/Loading'
-import MovieItems from './Items'
+import ListCard from 'routes/_shared/ListCard'
 import Modal from '../_shared/Modal'
 import styles from './Movie.module.scss'
 
@@ -56,8 +56,8 @@ const MovieList = () => {
         <>
           <h2 className={styles.searchTitle}>검색 결과</h2>
           <ul className={styles.lists}>
-            {data.map((item, idx) => (
-              <MovieItems key={`item-${idx}-${item.imdbID}`} item={item} />
+            {data.map((item) => (
+              <ListCard key={`movie-${item.imdbID}`} item={item} />
             ))}
           </ul>
           <div className={styles.target} ref={ref} />

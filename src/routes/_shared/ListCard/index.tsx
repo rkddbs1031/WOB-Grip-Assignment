@@ -4,14 +4,14 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { IListItem } from 'types/movie'
 import { SelectItem, ModalVisible, MovieFavoritList } from 'states/movie'
 
-import ImgNone from '../_shared/MovieImgNone'
-import styles from './Movie.module.scss'
+import ImgNone from '../MovieImgNone'
+import styles from './listcard.module.scss'
 
 interface Props {
   item: IListItem
 }
 
-const Items = ({ item }: Props) => {
+const ListCard = ({ item }: Props) => {
   const setSelectItem = useSetRecoilState<IListItem[]>(SelectItem)
   const setModalShow = useSetRecoilState<Boolean>(ModalVisible)
 
@@ -63,5 +63,4 @@ const Items = ({ item }: Props) => {
     </li>
   )
 }
-
-export default Items
+export default ListCard
