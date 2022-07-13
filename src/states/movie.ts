@@ -11,17 +11,15 @@ export const MovieFavoritList = atom<IListItem[]>({
   effects_UNSTABLE: [persistAtom], // 새로고침해도 유지
 })
 
-export const SelectItem = atom<IListItem[]>({
+export const SelectItem = atom<IListItem>({
   key: '#SelectItem',
-  default: [
-    {
-      Title: '',
-      Type: '',
-      Year: '',
-      imdbID: '',
-      Poster: '',
-    },
-  ],
+  default: {
+    Title: '',
+    Type: '',
+    Year: '',
+    imdbID: '',
+    Poster: '',
+  },
 })
 
 export const ModalVisible = atom<Boolean>({
@@ -34,7 +32,7 @@ export const MovieData = atom<IListItem[]>({
   default: [],
 })
 
-export const PageNum = atom({
+export const PageNum = atom<number>({
   key: '#PageNum',
   default: 1,
 })

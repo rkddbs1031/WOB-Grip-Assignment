@@ -1,4 +1,9 @@
-interface IListItem {
+export interface IParams {
+  s: string
+  page: number
+}
+
+export interface IListItem {
   Title: string
   Year: string
   imdbID: string

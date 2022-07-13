@@ -7,10 +7,9 @@ $GRAY6: #666666;
 $GRAYA: #aaaaaa;
 $GRAYD: #dddddd;
 $GRAYE: #eeeeee;
-$GRAYC: #cccccc;
 
 // Chromatic
-$RED: #ff3b30;
+$RED: #ea3a4b;
 $ORANGE: #ff9500;
 $YELLOW: #ffcc00;
 $GREEN: #34c759;
@@ -20,29 +19,24 @@ $INDIGO: #5856d6;
 $PURPLE: #af52de;
 $PINK: #ff2d55;
 
-$BIG_TITLE: #1f315b;
-$TASKS_TITLE: #8f99bf;
-$TASK_ITEM_TITLE: #4f566f;
-
-
 $BG_COLOR: #fafafa;
 $APP_BG: #ffffff;
-$APP_BOX_SHADOW:rgb(0 0 0 / 16%);
+$APP_BOX_SHADOW: rgba(0, 0, 0, 16%);
 $NAV: #fafafa;
-$NAV_ACTIVE:#dddcdc;
+$NAV_ACTIVE: #dddcdc;
 $NAV_SHADOW: #f4f4f480;
 $BOX_COLOR: #fafafa;
 $BOX_COLOR2: #f1f1f1bf;
-$BOX_SHADOW2: rgb(149 157 165 / 20%) 2px 4px 0px;
-$BOX_SHADOW: rgb(149 157 165 / 10%) 2px 4px 0px;
-$BOX_BORDER: rgb(238 238 238 / 45%);
+$BOX_SHADOW2: rgba(149, 157, 165, 20%) 2px 4px 0;
+$BOX_SHADOW: rgba(149, 157, 165, 10%) 2px 4px 0;
+$BOX_BORDER: rgba(238, 238, 238, 45%);
 $BUTTON: #22243b;
 $SERCH_TITLE: #8e8e9b;
-$LOGO: rgb(233 62 61 / 85%);
+$LOGO: rgba(233, 62, 61, 85%);
 $TITLE: #666666;
 $YEAR: #22222269;
 $IMGNONE: #dddddd;
-$SERIES_COLOR: rgb(129 191 127 / 78%);
+$SERIES_COLOR: rgba(129, 191, 127, 78%);
 $GAME_COLOR: #ffd75e;
 $MOVIE_COLOR: #95caf3;
 $RESULT: #8e8e9b;
