@@ -1,7 +1,7 @@
 import { axios } from 'hooks/worker'
 import { IMovieAPIRes, IParams } from 'types/movie.d'
 
-const MOVIE_BASE_URL = 'http://www.omdbapi.com'
+const MOVIE_BASE_URL = 'https://www.omdbapi.com'
 
 export const getMovieSearchApi = (params: IParams) => {
   const { s, page } = params
