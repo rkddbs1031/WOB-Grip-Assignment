@@ -1,8 +1,10 @@
-## 그립컴퍼니의 기업 과제 🙂
+## 원티드 프리온보딩 코스 그립컴퍼니의 기업 과제입니다. 🙂
 - 영화를 검색하고 즐겨찾기로 등록할 수 있는  React Movie App 구현하기 🎞</br></br>
 ### 기술 스택
 > Rect, TypeScript, Scss, Recoil
 
+### 배포 링크 
+> [yoon-movie-app](https://yoon-movie-app.netlify.app/)
 </br>
 
 ### 1. 기획✏
