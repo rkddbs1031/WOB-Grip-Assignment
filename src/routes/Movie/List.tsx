@@ -1,12 +1,12 @@
 import { useRecoilValue, useRecoilState, useResetRecoilState } from 'recoil'
-import { useState, useUnmount, useRef, useUpdateEffect, useQuery, useInView } from 'hooks'
+import { useState, useUnmount, useRef, useUpdateEffect, useQuery, useInView, useEffect } from 'hooks'
 
 import { SearchValue, MovieData, ModalVisible, PageNum } from 'states/movie'
 import { getMovieSearchApi } from 'services/movie'
 import { IListItem } from 'types/movie'
 
 import Loading from '../_shared/Loading'
-import ListCard from 'routes/_shared/ListCard'
+import ListCard from '../_shared/ListCard'
 import Modal from '../_shared/Modal'
 import styles from './Movie.module.scss'
 
@@ -21,7 +21,7 @@ const MovieList = () => {
   const resetSearchValue = useResetRecoilState(SearchValue)
   const resetData = useResetRecoilState(MovieData)
 
-  const { isLoading } = useQuery(
+  const { isLoading, refetch } = useQuery(
     ['getMovieSearchApi', getSearchValue, page],
     () =>
       getMovieSearchApi({ s: getSearchValue, page }).then((res) => {
@@ -40,6 +40,10 @@ const MovieList = () => {
     }
   )
 
+  useEffect(() => {
+    if (getSearchValue) refetch()
+  }, [getSearchValue, refetch])
+
   useUpdateEffect(() => {
     if (inView) setPage((prev) => prev + 1)
   }, [inView])
@@ -51,23 +55,25 @@ const MovieList = () => {
   })
 
   return (
-    <div className={styles.listWrap} ref={listScroll}>
-      {data && totalResults > 1 ? (
-        <>
-          <h2 className={styles.searchTitle}>검색 결과</h2>
-          <ul className={styles.lists}>
-            {data.map((item) => (
-              <ListCard key={`movie-${item.imdbID}`} item={item} />
-            ))}
-          </ul>
-          <div className={styles.target} ref={ref} />
-          {modalShow && <Modal />}
-        </>
-      ) : (
-        <h2 className={styles.result}>검색 결과가 없습니다.</h2>
-      )}
-      {inView && isLoading && <Loading />}
-    </div>
+    <section className={styles.section2}>
+      <div className={styles.listWrap} ref={listScroll}>
+        {data && totalResults > 1 ? (
+          <>
+            <h2 className={styles.searchTitle}>검색 결과</h2>
+            <ul className={styles.lists}>
+              {data.map((item: IListItem) => (
+                <ListCard key={`movie-${item.imdbID}`} item={item} />
+              ))}
+            </ul>
+            <div className={styles.target} ref={ref} />
+            {modalShow && <Modal />}
+          </>
+        ) : (
+          <h2 className={styles.result}>검색 결과가 없습니다.</h2>
+        )}
+        {inView && isLoading && <Loading />}
+      </div>
+    </section>
   )
 }
 

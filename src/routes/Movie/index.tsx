@@ -1,18 +1,12 @@
-import SearchBox from '../_shared/SearchBox'
+import SearchBox from './SearchBox'
 import MovieList from './List'
-
-import styles from './Movie.module.scss'
 
 const Movie = () => {
   return (
-    <main>
-      <section className={styles.section1}>
-        <SearchBox />
-      </section>
-      <section className={styles.section2}>
-        <MovieList />
-      </section>
-    </main>
+    <>
+      <SearchBox />
+      <MovieList />
+    </>
   )
 }
 export default Movie
