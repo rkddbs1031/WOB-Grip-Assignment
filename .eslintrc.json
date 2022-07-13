@@ -20,7 +20,6 @@
   "rules": {
     "arrow-body-style": "off",
     "semi": ["warn", "never"],
-    "prettier/prettier": ["error", { "endOfLine": "auto" }] ,
     "react/function-component-definition": ["warn", { "namedComponents": "arrow-function" }],
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-filename-extension": [
@@ -48,11 +47,10 @@
     "no-param-reassign": ["error", { "props": false }],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
-
     "no-shadow": "off",
     "no-unused-expressions": ["warn"],
     "@typescript-eslint/no-shadow": ["error"],
-    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
@@ -63,6 +61,7 @@
     ],
     "prefer-const": ["warn"],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "lines-between-class-members": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/label-has-associated-control": [
