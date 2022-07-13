@@ -1,5 +1,4 @@
 import FavList from './List'
-
 import styles from './Favorite.module.scss'
 
 const Favorites = () => {

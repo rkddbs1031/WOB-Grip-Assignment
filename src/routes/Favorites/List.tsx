@@ -4,9 +4,9 @@ import { useUnmount } from 'hooks'
 import { MovieFavoritList, ModalVisible } from 'states/movie'
 import { IListItem } from 'types/movie'
 
-import Modal from '../_shared/Modal'
-import styles from './Favorite.module.scss'
+import Modal from 'routes/_shared/Modal'
 import ListCard from 'routes/_shared/ListCard'
+import styles from './Favorite.module.scss'
 
 const FavList = () => {
   const favMovieList = useRecoilValue<IListItem[]>(MovieFavoritList)
