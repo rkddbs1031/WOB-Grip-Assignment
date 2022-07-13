@@ -10,7 +10,7 @@ import styles from 'routes/Routes.module.scss'
 const Modal = () => {
   const setModalValue = useSetRecoilState<Boolean>(ModalVisible)
   const [favMovieList, setFavMovieList] = useRecoilState<IListItem[]>(MovieFavoritList)
-  const selectItem = useRecoilValue<IListItem[]>(SelectItem)
+  const selectItem = useRecoilValue<IListItem>(SelectItem)
 
   const handleRemoveFavorite = () => {
     setFavMovieList(favMovieList.filter((item) => item.imdbID !== Object(selectItem).imdbID))
@@ -31,10 +31,10 @@ const Modal = () => {
       <div className={styles.modal}>
         <div className={styles.movieInfo}>
           <div className={styles.selectTitle}>선택항목</div>
-          <Item item={Object(selectItem)} />
+          <Item item={selectItem} />
         </div>
         <div className={styles.btnWrap}>
-          {favMovieList.filter((el) => el.imdbID.includes(Object(selectItem).imdbID)).length > 0 ? (
+          {favMovieList.filter((el) => el.imdbID.includes(selectItem.imdbID)).length > 0 ? (
             <button type='button' className={styles.favRemoveBtn} onClick={handleRemoveFavorite}>
               <Favorite2 />
               <span>즐겨찾기 취소</span>

@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import { cx } from 'styles'
 import { NavLink } from 'react-router-dom'
 
 import { SearchIcon24, Favorite1 } from 'assets/svgs/movie'

@@ -12,9 +12,8 @@ interface Props {
 }
 
 const ListCard = ({ item }: Props) => {
-  const setSelectItem = useSetRecoilState<IListItem[]>(SelectItem)
+  const setSelectItem = useSetRecoilState<IListItem>(SelectItem)
   const setModalShow = useSetRecoilState<Boolean>(ModalVisible)
-
   const favMovieList = useRecoilValue<IListItem[]>(MovieFavoritList)
 
   const handleModal = () => {
@@ -23,6 +22,7 @@ const ListCard = ({ item }: Props) => {
     setSelectItem(Object(items))
     setModalShow(true)
   }
+
   return (
     <li>
       <button type='button' className={styles.movieBtn} onClick={handleModal}>

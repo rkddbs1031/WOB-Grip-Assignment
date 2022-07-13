@@ -151,7 +151,7 @@
       letter-spacing: 0.3px;
       border: none;
 
-      + button {
+      +button {
         margin-left: 8px;
       }
     }
@@ -189,8 +189,13 @@
   }
 
   @keyframes modal {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 }
 
